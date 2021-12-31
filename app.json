@@ -57,6 +57,17 @@
                 ],
                 "mode": "readwrite"
             }
+        },
+        "/roleAssignments": {
+            "/post": {
+                "js_module": "endpoints/rbac.js",
+                "js_function": "assignPrincipalToRbacRole",
+                "forwarding_required": "always",
+                "authn_policies": [
+                    "user_cert"
+                ],
+                "mode": "readwrite"
+            }
         }
     }
 }

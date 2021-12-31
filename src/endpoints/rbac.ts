@@ -1,6 +1,6 @@
 
 import * as ccfapp from "@microsoft/ccf-app";
-import { addRole, getRole, removeRole } from "@windozer/ccf-identity";
+import { addRole, getRole, removeRole, updateRole } from "@windozer/ccf-identity";
 import { IdentityResponse } from "@windozer/ccf-identity/dist/models/identityResponse";
 import { IRoleDefinition } from "@windozer/ccf-identity/dist/models/roleDefinition";
 
@@ -18,5 +18,10 @@ export function getRbacRole(request: ccfapp.Request): ccfapp.Response<IdentityRe
 export function removeRbacRole(request: ccfapp.Request): ccfapp.Response<IdentityResponse> {
     const id = request.query.split('=')[1];
     const result = removeRole(id);
+    return { body: result };
+}
+
+export function updateRbacRole(request: ccfapp.Request<IRoleDefinition>): ccfapp.Response<IdentityResponse> {
+    const result = updateRole(request.body.json());
     return { body: result };
 }

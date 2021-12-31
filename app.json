@@ -47,6 +47,15 @@
                     "user_cert"
                 ],
                 "mode": "readwrite"
+            },
+            "put": {
+                "js_module": "endpoints/rbac.js",
+                "js_function": "updateRbacRole",
+                "forwarding_required": "always",
+                "authn_policies": [
+                    "user_cert"
+                ],
+                "mode": "readwrite"
             }
         }
     }

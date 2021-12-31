@@ -1,6 +1,6 @@
 
 import * as ccfapp from "@microsoft/ccf-app";
-import { addRole, assignPrincipalToRole, getRole, removePrincipalFromRole, removeRole, updateRole } from "@windozer/ccf-identity";
+import { addRole, assignPrincipalToRole, getRole, isInRole, removePrincipalFromRole, removeRole, updateRole } from "@windozer/ccf-identity";
 import { IdentityResponse } from "@windozer/ccf-identity/dist/models/identityResponse";
 import { IRoleDefinition } from "@windozer/ccf-identity/dist/models/roleDefinition";
 
@@ -35,5 +35,11 @@ export function assignPrincipalToRbacRole(request: ccfapp.Request): ccfapp.Respo
 export function removePrincipalFromRbacRole(request: ccfapp.Request): ccfapp.Response<IdentityResponse> {
     const requestBody = request.body.json();
     const result = removePrincipalFromRole(requestBody.roleId, requestBody.principalId);
+    return { body: result };
+}
+
+export function isInRbacRole(request: ccfapp.Request): ccfapp.Response<boolean> {
+    const requestBody = request.body.json();
+    const result = isInRole(requestBody.roleId, requestBody.principalId);
     return { body: result };
 }

@@ -77,6 +77,17 @@
                 ],
                 "mode": "readwrite"
             }
+        },
+        "/checkRole": {
+            "get": {
+                "js_module": "endpoints/rbac.js",
+                "js_function": "isInRbacRole",
+                "forwarding_required": "always",
+                "authn_policies": [
+                    "user_cert"
+                ],
+                "mode": "readonly"
+            }
         }
     }
 }

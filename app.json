@@ -21,9 +21,27 @@
             }
         },
         "/roles": {
+            "get": {
+                "js_module": "endpoints/rbac.js",
+                "js_function": "getRbacRole",
+                "forwarding_required": "always",
+                "authn_policies": [
+                    "user_cert"
+                ],
+                "mode": "readonly"
+            },
             "post": {
                 "js_module": "endpoints/rbac.js",
                 "js_function": "addRbacRole",
+                "forwarding_required": "always",
+                "authn_policies": [
+                    "user_cert"
+                ],
+                "mode": "readwrite"
+            },
+            "delete": {
+                "js_module": "endpoints/rbac.js",
+                "js_function": "removeRbacRole",
                 "forwarding_required": "always",
                 "authn_policies": [
                     "user_cert"

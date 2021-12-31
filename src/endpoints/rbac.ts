@@ -39,7 +39,8 @@ export function removePrincipalFromRbacRole(request: ccfapp.Request): ccfapp.Res
 }
 
 export function isInRbacRole(request: ccfapp.Request): ccfapp.Response<boolean> {
-    const requestBody = request.body.json();
-    const result = isInRole(requestBody.roleId, requestBody.principalId);
+    const roleId = request.query.split('=')[1];
+    const prinId = request.query.split('=')[2];
+    const result = isInRole(roleId, prinId);
     return { body: result };
 }

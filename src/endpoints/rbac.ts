@@ -10,13 +10,13 @@ export function addRbacRole(request: ccfapp.Request<IRoleDefinition>): ccfapp.Re
 }
 
 export function getRbacRole(request: ccfapp.Request): ccfapp.Response<IdentityResponse | IRoleDefinition> {
-    const id = parseInt(request.query.split('=')[1]);
-    const result = getRole(id.toString());
+    const id = request.query.split('=')[1];
+    const result = getRole(id);
     return { body: result };
 }
 
 export function removeRbacRole(request: ccfapp.Request): ccfapp.Response<IdentityResponse> {
-    const id = parseInt(request.query.split('=')[1]);
-    const result = removeRole(id.toString());
+    const id = request.query.split('=')[1];
+    const result = removeRole(id);
     return { body: result };
 }

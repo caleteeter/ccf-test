@@ -59,7 +59,7 @@
             }
         },
         "/roleAssignments": {
-            "/post": {
+            "post": {
                 "js_module": "endpoints/rbac.js",
                 "js_function": "assignPrincipalToRbacRole",
                 "forwarding_required": "always",
